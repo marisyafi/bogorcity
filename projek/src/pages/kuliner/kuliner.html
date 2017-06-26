@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Kuliner</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-searchbar (search)="getKul($event)"></ion-searchbar>
+	<button (click)="addKul()" ion-button large full icon-left><ion-icon name="add"></ion-icon>Tambah Kuliner</button>
+	<ion-list>
+	    <ion-item *ngFor="let kuliner of kulinerList | async">
+			<ion-card>
+				<img src="assets/img/kuliner.JPG"/>
+				<ion-card-content>
+				<ion-card-title>
+				  {{kuliner.nama}}
+				</ion-card-title>
+				<p>Alamat: {{kuliner.alamat}}, {{kuliner.kecamatan}}</p>
+		      	<p>Telepon: {{kuliner.telepon}}</p>
+		      	<p>Jam buka: {{kuliner.jb}}-{{kuliner.jt}}</p>
+				</ion-card-content>
+				<ion-grid>
+					<ion-row>
+					    <ion-col col-6>
+					    	<button full ion-button color="secondary" icon-left (click)="editKul(kuliner)"><ion-icon name="md-create"></ion-icon>Ubah</button>
+					  	</ion-col>
+					    <ion-col col-6>
+					    	<button full ion-button color="danger" icon-left (click)="deleteKul(kuliner)"><ion-icon name="md-trash"></ion-icon>Hapus</button>
+					    </ion-col>
+				    </ion-row>
+				</ion-grid>
+			</ion-card>
+		</ion-item>
+  	</ion-list>
+</ion-content>

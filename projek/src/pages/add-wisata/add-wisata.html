@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tambah Daftar Tempat Wisata</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<input type="hidden" [(ngModel)]="wisata.id" />
+	<ion-list>
+		<ion-item>
+			<ion-label floating>Nama Tempat</ion-label>
+			<ion-input type="text" [(ngModel)]="wisata.nama"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Alamat</ion-label>
+			<ion-input type="text" [(ngModel)]="wisata.alamat"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Kecamatan</ion-label>
+			<ion-input type="text" [(ngModel)]="wisata.kecamatan"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Telepon</ion-label>
+			<ion-input type="tel" [(ngModel)]="wisata.telepon"></ion-input>
+		</ion-item>
+		<ion-grid>
+	  		<ion-row>
+		  		<ion-col col-6>
+					<ion-item>
+						<ion-label floating>Jam Buka</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="wisata.jb"></ion-datetime>
+					</ion-item>
+				</ion-col>
+				<ion-col col-6>
+					<ion-item>
+						<ion-label floating>Jam Tutup</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="wisata.jt"></ion-datetime>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-item>
+			<ion-label floating>Harga Tiket</ion-label>
+			<ion-input type="number" [(ngModel)]="wisata.ht"></ion-input>
+		</ion-item>
+	</ion-list>
+	<button ion-button full (click)="addWis(wisata.id, wisata.nama, wisata.alamat, wisata.kecamatan, wisata.telepon, wisata.jb, wisata.jt, wisata.ht)"><span *ngIf="wisata.id">Ubah</span><span *ngIf="!wisata.id">Tambah</span></button>
+</ion-content>

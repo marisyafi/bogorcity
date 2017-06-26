@@ -1,0 +1,45 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tambah Daftar Kuliner</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<input type="hidden" [(ngModel)]="kuliner.id" />
+	<ion-list>
+		<ion-item>
+			<ion-label floating>Nama Tempat</ion-label>
+			<ion-input [(ngModel)]="kuliner.nama" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Alamat</ion-label>
+			<ion-input [(ngModel)]="kuliner.alamat" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Kecamatan</ion-label>
+			<ion-input [(ngModel)]="kuliner.kecamatan" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Telepon</ion-label>
+			<ion-input [(ngModel)]="kuliner.telepon" type="tel"></ion-input>
+		</ion-item>
+		<ion-grid>
+	  		<ion-row>
+		  		<ion-col col-6>
+					<ion-item>
+						<ion-label floating>Jam Buka</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="kuliner.jb"></ion-datetime>
+					</ion-item>
+				</ion-col>
+				<ion-col col-6>
+					<ion-item>
+						<ion-label floating>Jam Tutup</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="kuliner.jt"></ion-datetime>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-list>
+	<button ion-button full (click)="addKul(kuliner.id, kuliner.nama, kuliner.alamat, kuliner.kecamatan, kuliner.telepon, kuliner.jb, kuliner.jt)"> <span *ngIf="kuliner.id">Ubah</span><span *ngIf="!kuliner.id">Tambah</span></button>
+</ion-content>

@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tambah Trayek Angkutan Umum</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<input type="hidden" [(ngModel)]="angkot.id" />
+	<ion-list>
+		<ion-item>
+			<ion-label floating>Nama Angkutan</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.nama"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Trayek</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.trayek"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Warna</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.warna"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Rute</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.rute"></ion-input>
+		</ion-item>
+	</ion-list>
+	<button ion-button full (click)="addAng(angkot.id, angkot.nama, angkot.trayek, angkot.warna, angkot.rute)"><span *ngIf="angkot.id">Ubah</span><span *ngIf="!angkot.id">Tambah</span></button>
+</ion-content>
