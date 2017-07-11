@@ -1,0 +1,68 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title><span *ngIf="hotel.id">Ubah Daftar Hotel</span><span *ngIf="!hotel.id">Tambah Daftar Hotel</span></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<input type="hidden" [(ngModel)]="hotel.id" />
+	<ion-list>
+		<ion-item>
+			<ion-label color="primary" stacked>Nama Tempat</ion-label>
+			<ion-input [(ngModel)]="hotel.nama" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Alamat</ion-label>
+			<ion-input [(ngModel)]="hotel.alamat" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Kecamatan</ion-label>
+			<ion-input [(ngModel)]="hotel.kecamatan" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Telepon</ion-label>
+			<ion-input [(ngModel)]="hotel.telepon" type="tel"></ion-input>
+		</ion-item>
+		<ion-label color="primary" stacked>Kisaran Harga</ion-label>
+		<ion-row>
+			<ion-col col-5>
+			    <ion-input [(ngModel)]="hotel.harga1" min="0" type="number"></ion-input>
+			</ion-col>
+			<ion-col col-1>
+				<br>
+				<ion-icon name="md-remove"></ion-icon>
+			</ion-col>
+			<ion-col col-5>
+			    <ion-input [(ngModel)]="hotel.harga2" min="10000000" type="number"></ion-input>
+			</ion-col>
+		</ion-row>
+		<ion-label color="primary" stacked>Fasilitas</ion-label>
+		<ion-row>
+			<ion-col>
+			  <ion-checkbox [(ngModel)]="hotel.a"></ion-checkbox>
+			  <ion-label>AC</ion-label>
+			</ion-col>
+			<ion-col>
+			  <ion-checkbox [(ngModel)]="hotel.p"></ion-checkbox>
+			  <ion-label>Parkir</ion-label>
+			</ion-col>
+			<ion-col>
+			  <ion-checkbox [(ngModel)]="hotel.w"></ion-checkbox>
+			  <ion-label>WiFi</ion-label>
+			</ion-col>
+			<ion-col>
+			  <ion-checkbox [(ngModel)]="hotel.r"></ion-checkbox>
+			  <ion-label>Restoran</ion-label>
+			</ion-col>
+		</ion-row>
+		<ion-label color="primary" stacked>Foto</ion-label>
+		<ion-item>
+			<span *ngIf="hotel.foto"><img alt="Base64 Image" src="data:image/png;base64,{{hotel.foto}}"/><br></span>
+			<button ion-button icon-left color="primary" (click)="takePicture()"><ion-icon name="md-images"></ion-icon>Pilih Foto</button>
+		</ion-item>
+	</ion-list>
+	<button ion-button icon-left full (click)="addHot(hotel.id, hotel.nama, hotel.alamat, hotel.kecamatan, hotel.telepon, hotel.harga1, hotel.harga2, hotel.a, hotel.p, hotel.w, hotel.r, hotel.foto)"><span *ngIf="hotel.id"><ion-icon name="md-create"></ion-icon>Ubah</span><span *ngIf="!hotel.id"><ion-icon name="md-add"></ion-icon>Tambah</span></button>
+</ion-content>

@@ -1,0 +1,56 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title><span *ngIf="wisata.id">Ubah Daftar Wisata</span><span *ngIf="!wisata.id">Tambah Daftar Wisata</span></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<input type="hidden" [(ngModel)]="wisata.id" />
+	<ion-list>
+		<ion-item>
+			<ion-label color="primary" stacked>Nama Tempat</ion-label>
+			<ion-input type="text" [(ngModel)]="wisata.nama"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Alamat</ion-label>
+			<ion-input type="text" [(ngModel)]="wisata.alamat"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Kecamatan</ion-label>
+			<ion-input type="text" [(ngModel)]="wisata.kecamatan"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Telepon</ion-label>
+			<ion-input type="tel" [(ngModel)]="wisata.telepon"></ion-input>
+		</ion-item>
+		<ion-grid>
+	  		<ion-row>
+		  		<ion-col col-6>
+					<ion-item>
+						<ion-label color="primary" stacked>Jam Buka</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="wisata.jb"></ion-datetime>
+					</ion-item>
+				</ion-col>
+				<ion-col col-6>
+					<ion-item>
+						<ion-label color="primary" stacked>Jam Tutup</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="wisata.jt"></ion-datetime>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-item>
+			<ion-label color="primary" stacked>Harga Tiket</ion-label>
+			<ion-input type="number" [(ngModel)]="wisata.ht"></ion-input>
+		</ion-item>
+		<ion-label color="primary" stacked>Foto</ion-label>
+		<ion-item>
+			<span *ngIf="wisata.foto"><img alt="Base64 Image" src="data:image/png;base64,{{wisata.foto}}"/><br></span>
+			<button ion-button icon-left color="primary" (click)="takePicture()"><ion-icon name="md-images"></ion-icon>Pilih Foto</button>
+		</ion-item>
+	</ion-list>
+	<button ion-button icon-left full (click)="addWis(wisata.id, wisata.nama, wisata.alamat, wisata.kecamatan, wisata.telepon, wisata.jb, wisata.jt, wisata.ht, wisata.foto)"><span *ngIf="wisata.id"><ion-icon name="md-create"></ion-icon>Ubah</span><span *ngIf="!wisata.id"><ion-icon name="md-add"></ion-icon>Tambah</span></button>
+</ion-content>

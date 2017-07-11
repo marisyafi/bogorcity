@@ -1,0 +1,64 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title><span *ngIf="kuliner.id">Ubah Daftar Kuliner</span><span *ngIf="!kuliner.id">Tambah Daftar Kuliner</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<input type="hidden" [(ngModel)]="kuliner.id" />
+	<ion-list>
+		<ion-item>
+			<ion-label color="primary" stacked>Nama Tempat</ion-label>
+			<ion-input [(ngModel)]="kuliner.nama" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Alamat</ion-label>
+			<ion-input [(ngModel)]="kuliner.alamat" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Kecamatan</ion-label>
+			<ion-input [(ngModel)]="kuliner.kecamatan" type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Telepon</ion-label>
+			<ion-input [(ngModel)]="kuliner.telepon" type="tel"></ion-input>
+		</ion-item>
+		<ion-label color="primary" stacked>Kisaran Harga</ion-label>
+		<ion-row>
+			<ion-col col-5>
+			    <ion-input [(ngModel)]="kuliner.harga1" min="0" type="number"></ion-input>
+			</ion-col>
+			<ion-col col-1>
+				<br>
+				<ion-icon name="md-remove"></ion-icon>
+			</ion-col>
+			<ion-col col-5>
+			    <ion-input [(ngModel)]="kuliner.harga2" min="1000000" type="number"></ion-input>
+			</ion-col>
+		</ion-row>
+		<ion-grid>
+	  		<ion-row>
+		  		<ion-col col-6>
+					<ion-item>
+						<ion-label color="primary" stacked>Jam Buka</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="kuliner.jb"></ion-datetime>
+					</ion-item>
+				</ion-col>
+				<ion-col col-6>
+					<ion-item>
+						<ion-label color="primary" stacked>Jam Tutup</ion-label>
+						<ion-datetime displayFormat="HH" pickerFormat="HH" [(ngModel)]="kuliner.jt"></ion-datetime>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-label color="primary" stacked>Foto</ion-label>
+		<ion-item>
+			<span *ngIf="kuliner.foto"><img alt="Base64 Image" src="data:image/png;base64,{{kuliner.foto}}"/><br></span>
+			<button ion-button icon-left color="primary" (click)="takePicture()"><ion-icon name="md-images"></ion-icon>Pilih Foto</button>
+		</ion-item>
+	</ion-list>
+	<button ion-button icon-left full (click)="addKul(kuliner.id, kuliner.nama, kuliner.alamat, kuliner.kecamatan, kuliner.telepon, kuliner.harga1, kuliner.harga2, kuliner.jb, kuliner.jt, kuliner.foto)"><span *ngIf="kuliner.id"><ion-icon name="md-create"></ion-icon>Ubah</span><span *ngIf="!kuliner.id"><ion-icon name="md-add"></ion-icon>Tambah</span></button>
+</ion-content>
+

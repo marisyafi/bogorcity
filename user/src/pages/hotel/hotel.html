@@ -1,0 +1,35 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Hotel</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	    <ion-item *ngFor="let hotel of hotelList" text-wrap>
+			<ion-card>
+				<img alt="Base64 Image" src="data:image/png;base64,{{hotel.foto}}"/>
+				<ion-card-content>
+					<ion-card-title>
+					  {{hotel.nama}}
+					</ion-card-title>
+					<p>Alamat: {{hotel.alamat}}, {{hotel.kecamatan}}</p>
+			      	<p>Telepon: {{hotel.telepon}}</p>
+			      	<p>Kisaran Harga: Rp {{hotel.harga1}} - {{hotel.harga2}}</p>
+			      	<p>Fasilitas:</p>
+			      	<ion-row>
+			      		<span *ngIf="hotel.a"><ion-col><ion-icon name="md-snow"></ion-icon><br>AC</ion-col></span>
+			      		<span *ngIf="hotel.p"><ion-col><ion-icon name="md-car"></ion-icon><br>Parkir</ion-col></span>
+			      		<span *ngIf="hotel.w"><ion-col><ion-icon name="md-wifi"></ion-icon><br>WiFi</ion-col></span>
+			      		<span *ngIf="hotel.r"><ion-col><ion-icon name="md-restaurant"></ion-icon><br>Restoran</ion-col></span>
+			      	</ion-row>
+				</ion-card-content>
+			</ion-card>
+		</ion-item>
+  	</ion-list>
+</ion-content>

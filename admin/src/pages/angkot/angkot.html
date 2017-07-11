@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Angkot</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+	    <ion-item *ngFor="let angkot of angkotList | async" text-wrap>
+			<ion-card>
+				<img alt="Base64 Image" src="data:image/png;base64,{{angkot.foto}}"/>
+				<ion-card-content>
+					<ion-card-title>
+					  {{angkot.nama}}
+					</ion-card-title>
+					<p>Trayek: {{angkot.trayek}}</p>
+			      	<p>Warna: {{angkot.warna}}</p>
+			      	<p>Rute: {{angkot.rute}}</p>
+					<ion-grid>
+						<ion-row>
+						    <ion-col col-6>
+						    	<button full ion-button color="secondary" icon-left (click)="editAng(angkot)"><ion-icon name="md-create"></ion-icon>Ubah</button>
+						  	</ion-col>
+						    <ion-col col-6>
+						    	<button full ion-button color="danger" icon-left (click)="deleteAng(angkot)"><ion-icon name="md-trash"></ion-icon>Hapus</button>
+						    </ion-col>
+					    </ion-row>
+					</ion-grid>
+				</ion-card-content>
+			</ion-card>
+		</ion-item>
+  	</ion-list>
+  	<button (click)="addAng()" ion-button large full icon-left><ion-icon name="add"></ion-icon>Tambah Daftar Angkot</button>
+</ion-content>

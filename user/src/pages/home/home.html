@@ -1,0 +1,71 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-grid>
+			<ion-row>
+			    <ion-title>
+			      Home
+			    </ion-title>
+			    <ion-icon name="md-information-circle" (click)="seeAbo()" style="zoom:2.0;" color="light" ></ion-icon>
+			</ion-row>
+		</ion-grid>
+	</ion-navbar>
+</ion-header>
+
+<ion-content no-margin>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<ion-slides pager autoplay="2000" loop="true">
+				  <ion-slide>
+				    <h2>Warteg Bahari</h2>
+				    <p>Diskon 20% dengan membawa kartu pelajar</p>
+				    <img src="assets/img/kuliner.JPG"/>
+				  </ion-slide>
+				  <ion-slide>
+				    <h2>Hotel</h2>
+				    <img src="assets/img/hotel.jpg"/>
+				  </ion-slide>
+				  <ion-slide>
+				    <h2>Trayek</h2>
+				    <img src="assets/img/angkot.jpg"/>
+				  </ion-slide>
+				  <ion-slide>
+				    <h2>Wisata</h2>
+				    <img src="assets/img/wisata.jpg"/>
+				  </ion-slide>
+				</ion-slides>
+			</ion-col>
+		</ion-row>
+		<div class="card-background-page">
+		<ion-row>
+			<ion-col col>
+				<ion-card (click)="seeKul()">
+					<div class="background-image"><img src="assets/img/kuliner.JPG"/></div>
+					<div class="card-title">Kuliner</div>
+				</ion-card>
+			</ion-col>
+			<ion-col col>
+				<ion-card (click)="seeHot()">
+					<div class="background-image"><img src="assets/img/hotel.jpg"/></div>
+					<div class="card-title">Hotel</div>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+
+		<ion-row>
+			<ion-col col>
+				<ion-card (click)="seeAng()">
+					<div class="background-image"><img src="assets/img/angkot.jpg"/></div>
+					<div class="card-title">Angkot</div>
+				</ion-card>
+			</ion-col>
+			<ion-col col>
+				<ion-card (click)="seeWis()">
+					<div class="background-image"><img src="assets/img/wisata.jpg"/></div>
+					<div class="card-title">Wisata</div>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+		</div>
+	</ion-grid>
+<ion-content>

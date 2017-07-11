@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>
+      Log In
+    </ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content padding>
+	<ion-title>BogorCity</ion-title>
+<ion-list>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="loginData.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
+    </ion-item>
+    <button full ion-button (click)="login()" [disabled]="!loginData.email || !loginData.password">Login</button>
+</ion-list>
+
+</ion-content>

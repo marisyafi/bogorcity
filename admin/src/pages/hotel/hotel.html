@@ -1,0 +1,45 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Hotel</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+	    <ion-item *ngFor="let hotel of hotelList | async" text-wrap>
+			<ion-card>
+				<img alt="Base64 Image" src="data:image/png;base64,{{hotel.foto}}"/>
+				<ion-card-content>
+				<ion-card-title>
+				  {{hotel.nama}}
+				</ion-card-title>
+					<p>Alamat: {{hotel.alamat}}, {{hotel.kecamatan}}</p>
+			      	<p>Telepon: {{hotel.telepon}}</p>
+			      	<p>Kisaran Harga: Rp {{hotel.harga1}} - {{hotel.harga2}}</p>
+			      	<p>Fasilitas:</p>
+			      	<ion-row>
+			      		<span *ngIf="hotel.a"><ion-col><ion-icon name="md-snow"></ion-icon><br>AC</ion-col></span>
+			      		<span *ngIf="hotel.p"><ion-col><ion-icon name="md-car"></ion-icon><br>Parkir</ion-col></span>
+			      		<span *ngIf="hotel.w"><ion-col><ion-icon name="md-wifi"></ion-icon><br>WiFi</ion-col></span>
+			      		<span *ngIf="hotel.r"><ion-col><ion-icon name="md-restaurant"></ion-icon><br>Restoran</ion-col></span>
+			      	</ion-row>
+				</ion-card-content>
+				<ion-grid>
+					<ion-row>
+					    <ion-col col-6>
+					    	<button full ion-button color="secondary" icon-left (click)="editHot(hotel)"><ion-icon name="md-create"></ion-icon>Ubah</button>
+					  	</ion-col>
+					    <ion-col col-6>
+					    	<button full ion-button color="danger" icon-left (click)="deleteHot(hotel)"><ion-icon name="md-trash"></ion-icon>Hapus</button>
+					    </ion-col>
+				    </ion-row>
+				</ion-grid>
+			</ion-card>
+		</ion-item>
+  	</ion-list>
+  	<button (click)="addHot()" ion-button large full icon-left><ion-icon name="add"></ion-icon>Tambah Daftar Hotel</button>
+</ion-content>

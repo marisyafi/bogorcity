@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Kuliner</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	    <ion-item *ngFor="let kuliner of kulinerList" text-wrap>
+			<ion-card>
+				<img alt="Base64 Image" src="data:image/png;base64,{{kuliner.foto}}"/>
+				<ion-card-content>
+				<ion-card-title>
+				  {{kuliner.nama}}
+				</ion-card-title>
+				<p>Alamat: {{kuliner.alamat}}, {{kuliner.kecamatan}}</p>
+		      	<p>Telepon: {{kuliner.telepon}}</p>
+		      	<p>Kisaran Harga: Rp {{kuliner.harga1}} - {{kuliner.harga2}}</p>
+		      	<p>Jam buka: {{kuliner.jb}}-{{kuliner.jt}}</p>
+				</ion-card-content>
+			</ion-card>
+		</ion-item>
+  	</ion-list>
+</ion-content>

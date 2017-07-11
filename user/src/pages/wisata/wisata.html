@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Wisata</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	    <ion-item *ngFor="let wisata of wisataList" text-wrap>
+			<ion-card>
+				<img alt="Base64 Image" src="data:image/png;base64,{{wisata.foto}}"/>
+				<ion-card-content>
+				<ion-card-title>
+				  {{wisata.nama}}
+				</ion-card-title>
+				<p>Alamat: {{wisata.alamat}}, {{wisata.kecamatan}}</p>
+		      	<p>Telepon: {{wisata.telepon}}</p>
+		      	<p>Jam buka: {{wisata.jb}}-{{wisata.jt}}</p>
+		      	<p>Harga Tiket: Rp {{wisata.ht}}</p>
+				</ion-card-content>
+			</ion-card>
+		</ion-item>
+  	</ion-list>
+</ion-content>

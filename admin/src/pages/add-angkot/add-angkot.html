@@ -1,0 +1,37 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title><span *ngIf="angkot.id">Ubah Daftar Angkot</span><span *ngIf="!angkot.id">Tambah Daftar Angkot</span></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<input type="hidden" [(ngModel)]="angkot.id" />
+	<ion-list>
+		<ion-item>
+			<ion-label color="primary" stacked>Nama Angkutan</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.nama"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Trayek</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.trayek"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Warna</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.warna"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Rute</ion-label>
+			<ion-input type="text" [(ngModel)]="angkot.rute"></ion-input>
+		</ion-item>
+		<ion-label color="primary" stacked>Foto</ion-label>
+		<ion-item>
+			<span *ngIf="angkot.foto"><img alt="Base64 Image" src="data:image/png;base64,{{angkot.foto}}"/><br></span>
+			<button ion-button icon-left color="primary" (click)="takePicture()"><ion-icon name="md-images"></ion-icon>Pilih Foto</button>
+		</ion-item>
+	</ion-list>
+	<button ion-button icon-left full (click)="addAng(angkot.id, angkot.nama, angkot.trayek, angkot.warna, angkot.rute, angkot.foto)"><span *ngIf="angkot.id"><ion-icon name="md-create"></ion-icon>Ubah</span><span *ngIf="!angkot.id"><ion-icon name="md-add"></ion-icon>Tambah</span></button>
+</ion-content>

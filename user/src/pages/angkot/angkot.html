@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Angkot</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list>
+		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+	    <ion-item *ngFor="let angkot of angkotList" text-wrap>
+			<ion-card>
+				<img alt="Base64 Image" src="data:image/png;base64,{{angkot.foto}}"/>
+				<ion-card-content>
+				<ion-card-title>
+				  {{angkot.nama}}
+				</ion-card-title>
+				<p>Trayek: {{angkot.trayek}}</p>
+		      	<p>Warna: {{angkot.warna}}</p>
+		      	<p>Rute: {{angkot.rute}}</p>
+				</ion-card-content>
+			</ion-card>
+		</ion-item>
+  	</ion-list>
+</ion-content>
